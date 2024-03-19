@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses Page</title>
+    <!-- Dark theme variant of Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind-dark.min.css" rel="stylesheet">
+    <!-- Font Awesome icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto py-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Left Side - Courses List -->
+            <div class="md:col-span-1">
+                <h2 class="text-2xl font-bold mb-4">Courses</h2>
+                <ul class="space-y-2">
+                    <li class="bg-gray-800 p-4 shadow-md rounded-md">
+                        <a href="#" class="text-blue-400 font-semibold">Course Title 1</a>
+                    </li>
+                    <li class="bg-gray-800 p-4 shadow-md rounded-md">
+                        <a href="#" class="text-blue-400 font-semibold">Course Title 2</a>
+                    </li>
+                    <!-- Add more courses here -->
+                </ul>
+            </div>
+            <!-- Right Side - Video Player and PDF -->
+            <div class="md:col-span-2">
+                <div class="bg-gray-800 p-4 shadow-md rounded-md">
+                    <h2 class="text-2xl font-bold mb-4">Video</h2>
+                    <!-- Video Player (Sample Embed) -->
+                    <div class="flex items-center justify-center mb-4">
+                        <button id="previousButton" class="mr-4"><i class="fas fa-chevron-left text-white"></i></button>
+                        <div class="aspect-w-16 aspect-h-9" id="videoContainer">
+                            <iframe id="videoFrame" style="width: 470px; height: 250px;" src="https://www.youtube.com/embed/hNDoUW8Hbtc" title="Class 24 | Online Graphic Designing Course 2024 | Batch-6 | Ehsas Lab" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <button id="nextButton" class="ml-4"><i class="fas fa-chevron-right text-white"></i></button>
+                    </div>
+                    <!-- PDF Viewer -->
+                    <div class="aspect-w-16 aspect-h-9 mb-4">
+                        <iframe class="w-full h-full" src="file:///C:/Users/Sufyan%20Nwl/Desktop/New%20folder/pdf.pdf" title="PDF Viewer" frameborder="0"></iframe>
+                    </div>
+                    <!-- Download PDF Link -->
+                    <div class="text-center">
+                        <a href="#" class="text-blue-400 font-semibold">Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Font Awesome script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script>
+        const videos = [
+            "https://www.youtube.com/embed/hNDoUW8Hbtc",
+            // Add more video URLs here
+        ];
+        
+        let currentIndex = 0;
+        const videoFrame = document.getElementById("videoFrame");
+
+        document.getElementById("previousButton").addEventListener("click", () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                videoFrame.src = videos[currentIndex];
+            }
+        });
+
+        document.getElementById("nextButton").addEventListener("click", () => {
+            if (currentIndex < videos.length - 1) {
+                currentIndex++;
+                videoFrame.src = videos[currentIndex];
+            }
+        });
+    </script>
+</body>
+</html>
